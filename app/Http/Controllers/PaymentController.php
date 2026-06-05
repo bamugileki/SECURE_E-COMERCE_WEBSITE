@@ -22,9 +22,16 @@ class PaymentController extends Controller
         $this->paymentService = $paymentService;
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        $gateway = $this->paymentService->gateway();
+        $gatewayName = $request->input('gateway', $this->paymentService->getDefaultGateway());
+
+        try {
+            $gateway = $this->paymentService->gateway($gatewayName);
+        } catch (\Exception $e) {
+            return back()->with('error', 'Selected payment gateway is not available.');
+        }
+
         $cartItems = Cart::with('product')->where('user_id', Auth::id())->get();
 
         if ($cartItems->isEmpty()) {
@@ -62,8 +69,8 @@ class PaymentController extends Controller
             'customer_email' => Auth::user()->email,
             'customer_name' => Auth::user()->first_name . ' ' . Auth::user()->last_name,
             'user_id' => (string) Auth::id(),
-            'success_url' => route('payment.success') . '?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('payment.cancel'),
+            'success_url' => route('payment.success') . '?session_id={CHECKOUT_SESSION_ID}&gateway=' . $gateway->getName(),
+            'cancel_url' => route('payment.cancel') . '?gateway=' . $gateway->getName(),
         ]);
 
         if ($result['status'] === 'failed') {
@@ -89,7 +96,28 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-        $gateway = $this->paymentService->gateway();
+        if ($request->has('session_id')) {
+            $gatewayName = 'stripe';
+        } elseif ($request->has('mock_reference')) {
+            $gatewayName = 'mock';
+        } elseif ($request->has('token')) {
+            $gatewayName = 'paypal';
+        } elseif ($request->has('gateway') && in_array($request->gateway, ['stripe', 'mock', 'paypal'])) {
+            $gatewayName = $request->gateway;
+        } else {
+            $pending = Payment::where('user_id', Auth::id())->where('status', 'pending')->latest()->first();
+            if (!$pending) {
+                return redirect()->route('cart.index')->with('error', 'Unable to determine payment gateway.');
+            }
+            $gatewayName = $pending->gateway;
+        }
+
+        try {
+            $gateway = $this->paymentService->gateway($gatewayName);
+        } catch (\Exception $e) {
+            return redirect()->route('cart.index')->with('error', 'Payment gateway not available.');
+        }
+
         $result = $gateway->complete($request->all());
 
         if ($result['status'] !== 'completed') {
@@ -97,7 +125,7 @@ class PaymentController extends Controller
                 ->with('error', $result['message'] ?? 'Payment was not completed.');
         }
 
-        $payment = Payment::where('gateway', $gateway->getName())
+        $payment = Payment::where('gateway', $gatewayName)
             ->where('gateway_reference', $result['gateway_reference'])
             ->first();
 
@@ -170,6 +198,26 @@ class PaymentController extends Controller
             return redirect()->route('cart.index')
                 ->with('error', 'Order creation failed. Please contact support.');
         }
+    }
+
+    public function showGateways()
+    {
+        $gateways = $this->paymentService->gateways();
+
+        if (empty($gateways)) {
+            return redirect()->route('cart.index')->with('error', 'No payment gateways available.');
+        }
+
+        return view('checkout.gateways', compact('gateways'));
+    }
+
+    public function mockConfirm(string $reference)
+    {
+        $cartItems = Cart::with('product')->where('user_id', Auth::id())->get();
+        $total = $cartItems->sum(fn($i) => $i->product->currentPrice() * $i->quantity);
+        $count = $cartItems->sum('quantity');
+
+        return view('checkout.mock-confirm', compact('reference', 'cartItems', 'total', 'count'));
     }
 
     public function cancel()

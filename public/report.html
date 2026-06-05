@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartTrade Africa Ltd - Secure E-Commerce Platform Report</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.7; }
+.cover { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%); color: #fff; padding: 40px; }
+.cover h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 10px; letter-spacing: -1px; }
+.cover .subtitle { font-size: 1.3em; color: #93c5fd; margin-bottom: 30px; }
+.cover .meta { font-size: 0.95em; color: #94a3b8; line-height: 2; }
+.cover .meta strong { color: #e2e8f0; }
+.cover .badge { display: inline-block; background: #2563eb; color: #fff; padding: 6px 20px; border-radius: 50px; font-size: 0.85em; font-weight: 600; margin-bottom: 20px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+.toc { background: #fff; border-radius: 12px; padding: 30px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 40px 0; }
+.toc h2 { font-size: 1.5em; margin-bottom: 16px; color: #0f172a; }
+.toc ol { padding-left: 20px; }
+.toc ol li { padding: 4px 0; }
+.toc ol li a { color: #2563eb; text-decoration: none; }
+.toc ol li a:hover { text-decoration: underline; }
+.chapter { background: #fff; border-radius: 12px; padding: 30px 40px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 30px 0; }
+.chapter h2 { font-size: 1.6em; font-weight: 700; color: #0f172a; border-bottom: 3px solid #2563eb; padding-bottom: 8px; margin-bottom: 20px; }
+.chapter h3 { font-size: 1.2em; font-weight: 600; color: #1e3a5f; margin-top: 24px; margin-bottom: 10px; }
+.chapter h4 { font-size: 1.05em; font-weight: 600; color: #334155; margin-top: 18px; margin-bottom: 8px; }
+.chapter p { margin-bottom: 12px; text-align: justify; }
+.chapter ul, .chapter ol { margin: 8px 0 12px 20px; }
+.chapter li { margin-bottom: 4px; }
+.chapter table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em; }
+.chapter table th { background: #1e3a5f; color: #fff; padding: 10px 12px; text-align: left; }
+.chapter table td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; }
+.chapter table tr:nth-child(even) { background: #f8fafc; }
+.screenshot-box { background: #f1f5f9; border: 2px dashed #94a3b8; border-radius: 8px; padding: 40px 20px; text-align: center; margin: 16px 0; }
+.screenshot-box .label { font-weight: 600; color: #475569; }
+.screenshot-box .desc { font-size: 0.85em; color: #64748b; margin-top: 6px; }
+.code-block { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 8px; font-family: 'Cascadia Code', monospace; font-size: 0.85em; overflow-x: auto; margin: 12px 0; }
+.highlight { background: #dbeafe; padding: 2px 6px; border-radius: 4px; font-weight: 500; color: #1e40af; }
+.tag { display: inline-block; background: #e2e8f0; color: #475569; padding: 2px 10px; border-radius: 50px; font-size: 0.75em; font-weight: 600; margin-right: 4px; }
+.tag-green { background: #dcfce7; color: #166534; }
+.tag-blue { background: #dbeafe; color: #1e40af; }
+.tag-purple { background: #f3e8ff; color: #6b21a8; }
+.tag-red { background: #fee2e2; color: #991b1b; }
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.feature-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+.feature-card h4 { margin-top: 0; font-size: 0.95em; }
+.feature-card p { font-size: 0.85em; margin-bottom: 0; }
+.footer { text-align: center; color: #94a3b8; font-size: 0.85em; padding: 30px; border-top: 1px solid #e2e8f0; margin-top: 40px; }
+@media print { .cover { min-height: 100vh; page-break-after: always; } .chapter { page-break-inside: avoid; } body { font-size: 11pt; } }
+.page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+    <div class="badge">COURSE ASSIGNMENT 2</div>
+    <h1>SmartTrade Africa Ltd</h1>
+    <div class="subtitle">Secure E-Commerce Platform with Biometric Authentication &amp; Trusted Computing</div>
+    <div class="meta">
+        <strong>Course:</strong> Trust Management in E-Commerce (428)<br>
+        <strong>Assignment Type:</strong> Group Project<br>
+        <strong>Submission Deadline:</strong> 22/06/2026<br><br>
+        <strong>Developed by:</strong> HESMB Team<br>
+        <strong>Platform:</strong> Laravel 12 + WebAuthn + Stripe/PayPal/Mock Payment APIs<br>
+        <strong>Server Running At:</strong> <a href="http://127.0.0.1:8000" style="color:#93c5fd;">http://127.0.0.1:8000</a>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="container">
+<div class="toc">
+<h2>Table of Contents</h2>
+<ol>
+    <li><a href="#ch1">Introduction</a></li>
+    <li><a href="#ch2">System Architecture &amp; Technology Stack</a></li>
+    <li><a href="#ch3">User Registration &amp; Authentication</a></li>
+    <li><a href="#ch4">Product Management &amp; Shopping Cart</a></li>
+    <li><a href="#ch5">Payment API Integration</a></li>
+    <li><a href="#ch6">Fingerprint Biometric Authentication (WebAuthn)</a></li>
+    <li><a href="#ch7">Trusted Computing Platform (TCP) Integration</a></li>
+    <li><a href="#ch8">Trust Management Features</a></li>
+    <li><a href="#ch9">Security Implementation</a></li>
+    <li><a href="#ch10">TAM / UTAUT Integration</a></li>
+    <li><a href="#ch11">Admin Panel &amp; Reports</a></li>
+    <li><a href="#ch12">Screenshots Documentation</a></li>
+    <li><a href="#ch13">Testing &amp; Verification</a></li>
+    <li><a href="#ch14">Conclusion &amp; Recommendations</a></li>
+    <li><a href="#ch15">References</a></li>
+</ol>
+</div>
+
+<!-- CHAPTER 1: INTRODUCTION -->
+<div class="chapter" id="ch1">
+<h2>1. Introduction</h2>
+
+<h3>1.1 Background</h3>
+<p>SmartTrade Africa Ltd is a rapidly growing digital commerce company based in Tanzania that plans to launch a modern e-commerce platform allowing customers to buy products online via both mobile and web applications. The company has identified critical trust and security challenges including fake customer accounts, online payment fraud, unauthorized access attempts, identity theft, customer distrust toward online payments, and data privacy concerns.</p>
+
+<h3>1.2 Problem Statement</h3>
+<p>Traditional e-commerce platforms face significant challenges in building and maintaining customer trust. Security breaches, identity theft, and payment fraud have eroded consumer confidence in online transactions. SmartTrade Africa Ltd requires a comprehensive solution that addresses these challenges through the integration of trusted computing technologies, biometric authentication, secure payment processing, and trust management principles.</p>
+
+<h3>1.3 Project Objectives</h3>
+<ul>
+    <li>Develop a secure e-commerce web application with comprehensive features</li>
+    <li>Integrate Trusted Computing Platform (TCP) concepts for secure session and device management</li>
+    <li>Implement WebAuthn-based fingerprint biometric authentication</li>
+    <li>Integrate multiple simulated and real payment APIs (Stripe, PayPal, Mock)</li>
+    <li>Apply trust management principles throughout the system</li>
+    <li>Improve customer trust and user confidence through transparent security indicators</li>
+    <li>Apply TAM/UTAUT concepts to improve technology adoption and usability</li>
+    <li>Implement secure software development practices (CSRF, XSS, SQL injection prevention)</li>
+</ul>
+
+<h3>1.4 Scope</h3>
+<p>The application covers user registration and authentication (including biometrics), product catalog management, shopping cart and wishlist functionality, secure checkout with multiple payment gateways, order management, customer reviews and ratings, admin dashboard with analytics, and comprehensive trust and security features.</p>
+</div>
+
+<!-- CHAPTER 2: SYSTEM ARCHITECTURE -->
+<div class="chapter page-break" id="ch2">
+<h2>2. System Architecture &amp; Technology Stack</h2>
+
+<h3>2.1 Technology Stack</h3>
+<table>
+<tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+<tr><td>Backend Framework</td><td>Laravel 12 (PHP 8.2+)</td><td>MVC architecture, routing, ORM, security</td></tr>
+<tr><td>Frontend</td><td>Blade Templates + Tailwind CSS + Bootstrap 5</td><td>Responsive UI, utility-first styling</td></tr>
+<tr><td>JavaScript</td><td>Alpine.js + Vanilla JS + Axios</td><td>Interactive components, AJAX, API calls</td></tr>
+<tr><td>Database</td><td>SQLite (dev) / MySQL (production)</td><td>Data persistence</td></tr>
+<tr><td>Build Tool</td><td>Vite 7</td><td>Asset bundling and HMR</td></tr>
+<tr><td>Biometrics</td><td>WebAuthn (FIDO2) via lbuchs/webauthn</td><td>Passwordless fingerprint/face authentication</td></tr>
+<tr><td>Payments</td><td>Stripe API + PayPal API + Mock Gateway</td><td>Secure payment processing</td></tr>
+<tr><td>PDF Generation</td><td>barryvdh/laravel-dompdf</td><td>Invoice/receipt PDF download</td></tr>
+<tr><td>Security</td><td>bcrypt (12 rounds), CSRF, XSS filters, prepared statements</td><td>Data protection</td></tr>
+</table>
+
+<h3>2.2 System Architecture Diagram</h3>
+<p>The application follows Laravel's MVC (Model-View-Controller) architecture with a service layer for payment gateway abstraction:</p>
+<div class="code-block">
+User Browser / Device
+    |
+    v
+Laravel Routing (web.php / auth.php)
+    |
+    v
+Middleware (auth, guest, admin, CSRF, sessions)
+    |
+    v
+Controllers (Auth, Product, Cart, Order, Payment, Biometric, Admin)
+    |
+    v
+Models (Eloquent ORM) ----> Database (SQLite/MySQL)
+    |
+    v
+Views (Blade Templates with Tailwind + Bootstrap)
+    |
+    v
+Services Layer:
+  - PaymentService (Strategy Pattern: Stripe, PayPal, Mock, Flutterwave)
+  - WebAuthn (FIDO2 Biometric Authentication)
+  - ActivityLogging (User action tracking)
+</div>
+
+<h3>2.3 Database Schema</h3>
+<p>The application uses 14 database tables:</p>
+<table>
+<tr><th>Table</th><th>Purpose</th></tr>
+<tr><td>users</td><td>Customer and admin accounts with role-based access</td></tr>
+<tr><td>categories</td><td>Product categories for classification</td></tr>
+<tr><td>products</td><td>Product catalog with pricing, discounts, stock</td></tr>
+<tr><td>cart</td><td>Shopping cart items per user</td></tr>
+<tr><td>wishlists</td><td>User wishlist items</td></tr>
+<tr><td>orders</td><td>Customer orders with status tracking</td></tr>
+<tr><td>order_items</td><td>Individual items within orders</td></tr>
+<tr><td>payments</td><td>Payment transactions with gateway details</td></tr>
+<tr><td>credentials</td><td>WebAuthn/FIDO2 biometric credential storage</td></tr>
+<tr><td>biometric_tokens</td><td>Tokens for remote biometric setup links</td></tr>
+<tr><td>otp_codes</td><td>One-time passwords for phone verification</td></tr>
+<tr><td>product_ratings</td><td>Customer ratings and reviews</td></tr>
+<tr><td>activity_log</td><td>User activity tracking</td></tr>
+<tr><td>support_messages</td><td>Customer support inquiries</td></tr>
+</table>
+</div>
+
+<!-- CHAPTER 3: AUTHENTICATION -->
+<div class="chapter page-break" id="ch3">
+<h2>3. User Registration &amp; Authentication</h2>
+
+<h3>3.1 Secure Registration</h3>
+<p>Users register with first name, last name, email, password (min 8 characters), and phone number. Passwords are hashed using bcrypt with 12 rounds. Email verification is required before full access is granted.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Registration Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/register to view the registration form with first name, last name, email, phone, password, and confirm password fields. All fields are validated server-side with proper error messages.</div>
+</div>
+
+<h3>3.2 Secure Login</h3>
+<p>Login requires email and password with rate limiting (5 attempts per minute). After successful login, users can optionally authenticate using their fingerprint via WebAuthn.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Login Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/login to view the login form. Features include "Remember Me" option, "Forgot Password" link, and a biometric login button for returning users who have enrolled their fingerprint.</div>
+</div>
+
+<h3>3.3 Password Recovery</h3>
+<p>The system supports secure password reset via email. Users request a reset link, receive a tokenized URL, and set a new password. All reset tokens are hashed and time-limited.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Password Reset Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/forgot-password to test the password reset flow. Enter your registered email to receive a reset link.</div>
+</div>
+
+<h3>3.4 Session Management</h3>
+<p>Sessions are stored in the database with a lifetime of 120 minutes. Session timeout forces re-authentication. Each session tracks IP address, user agent, and last activity for security auditing.</p>
+</div>
+
+<!-- CHAPTER 4: PRODUCT MANAGEMENT -->
+<div class="chapter page-break" id="ch4">
+<h2>4. Product Management &amp; Shopping Cart</h2>
+
+<h3>4.1 Product Catalog</h3>
+<p>Products are displayed with names, descriptions, prices (with discount support), stock levels, category filters, and ratings. The product listing supports search and category filtering with pagination.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Products Listing Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/products to see the full product catalog with grid layout, search bar, category filter dropdown, product images (or placeholder), prices with discount badges, stock indicators, and Add to Cart / Wishlist buttons.</div>
+</div>
+
+<h3>4.2 Product Detail Page</h3>
+<p>Each product has a dedicated detail page showing full description, pricing with discount calculations, stock availability, quantity selector, Add to Cart and Wishlist actions, social sharing (WhatsApp, Facebook, Twitter), customer ratings and reviews with submission form, and WhatsApp inquiry button.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Product Detail Page]</div>
+    <div class="desc">Click on any product to view its detail page. Shows product image, full description, price with discount, stock status, quantity selector, Add to Cart button, Wishlist button, WhatsApp inquiry, social sharing icons, and customer reviews section with star ratings.</div>
+</div>
+
+<h3>4.3 Shopping Cart</h3>
+<p>The cart page displays items with quantities, individual prices, subtotals, and total. Users can update quantities inline (with real-time stock validation and total recalculation via JavaScript) and remove items. The "Proceed to Checkout" button leads to payment gateway selection.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Shopping Cart Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/cart (after adding items) to view the cart with product thumbnails, names, prices, quantity inputs with update buttons, subtotals, stock remaining indicators, remove buttons, and the total with Proceed to Checkout button.</div>
+</div>
+
+<h3>4.4 Wishlist</h3>
+<p>Users can maintain a wishlist of products they are interested in, with easy Add to Cart conversion from the wishlist.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Wishlist Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/wishlist to see saved products with options to add to cart or remove from wishlist.</div>
+</div>
+</div>
+
+<!-- CHAPTER 5: PAYMENT API INTEGRATION -->
+<div class="chapter page-break" id="ch5">
+<h2>5. Payment API Integration</h2>
+
+<h3>5.1 Multi-Gateway Architecture</h3>
+<p>The payment system uses the Strategy Pattern via <code>PaymentService</code> and <code>PaymentGatewayInterface</code>, allowing seamless switching between gateways:</p>
+<table>
+<tr><th>Gateway</th><th>Status</th><th>Description</th></tr>
+<tr><td>Stripe</td><td><span class="tag tag-green">Active</span></td><td>Real credit/debit card processing via Stripe Checkout Sessions (test mode with pk_test/sk_test keys configured)</td></tr>
+<tr><td>PayPal</td><td><span class="tag tag-blue">Configured</span></td><td>PayPal Orders API v2 with OAuth2 authentication (sandbox mode, requires client credentials)</td></tr>
+<tr><td>Mock</td><td><span class="tag tag-green">Active (Default)</span></td><td>Session-based simulated payment for testing without real charges</td></tr>
+<tr><td>Flutterwave</td><td><span class="tag tag-red">Disabled</span></td><td>Placeholder implementation for African mobile money payments</td></tr>
+</table>
+
+<h3>5.2 Gateway Selection</h3>
+<p>Users choose their preferred payment method at checkout. The system shows available gateways with descriptions:</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Payment Gateway Selection Page]</div>
+    <div class="desc">Navigate through Checkout to see the gateway selection screen showing Mock Payment, Stripe, and PayPal options with descriptions. Select "Mock Payment (Test)" for a simulated transaction.</div>
+</div>
+
+<h3>5.3 Mock Payment Flow</h3>
+<ol>
+    <li>User clicks "Mock Payment (Test)" on gateway selection page</li>
+    <li>System creates a pending payment record and redirects to mock confirmation page</li>
+    <li>User clicks "Simulate Successful Payment" to complete the transaction</li>
+    <li>Order is created, stock is decremented, cart is cleared, notification is sent</li>
+    <li>User is redirected to order detail page with success message</li>
+</ol>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Mock Payment Confirmation Page]</div>
+    <div class="desc">After selecting Mock Payment, you'll see a simulated payment page with "Simulate Successful Payment" and "Cancel Payment" buttons. This demonstrates the test payment flow.</div>
+</div>
+
+<h3>5.4 Stripe Integration</h3>
+<p>For real payment processing, Stripe Checkout Sessions are created with proper line items, customer email, success/cancel URLs. The system converts TZS to USD using the configured exchange rate (2400 TZS/USD). Stripe test keys are pre-configured in the .env file.</p>
+
+<h3>5.5 Payment Security</h3>
+<ul>
+    <li>No sensitive payment information (credit card numbers) is stored in the database</li>
+    <li>All payment processing happens through the payment gateway's secure hosted pages</li>
+    <li>Payment records store only gateway reference IDs and transaction status</li>
+    <li>PCI DSS compliance is maintained by avoiding direct card data handling</li>
+    <li>Transaction status is verified via webhook/callback before order confirmation</li>
+</ul>
+
+<h3>5.6 Receipt Generation</h3>
+<p>After successful payment, customers can view and download PDF receipts for their orders. Receipts include order details, item breakdown, payment information, and company branding.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Order Receipt Page]</div>
+    <div class="desc">After placing an order, visit the order detail page and click "View Receipt" to see the formatted receipt. Use "Download PDF" to get a PDF version generated via DomPDF.</div>
+</div>
+</div>
+
+<!-- CHAPTER 6: BIOMETRIC AUTHENTICATION -->
+<div class="chapter page-break" id="ch6">
+<h2>6. Fingerprint Biometric Authentication (WebAuthn)</h2>
+
+<h3>6.1 Technology: WebAuthn / FIDO2</h3>
+<p>The application implements the W3C Web Authentication API (WebAuthn) standard using the <code>lbuchs/webauthn</code> PHP library. WebAuthn is a phishing-resistant authentication standard that allows users to authenticate using biometric sensors (fingerprint, face recognition), platform authenticators (Windows Hello, Apple Touch ID), or external security keys.</p>
+
+<h3>6.2 Key Features</h3>
+<ul>
+    <li><strong>Biometric Registration:</strong> Users enroll their fingerprint via browser's native credential management API</li>
+    <li><strong>Biometric Authentication:</strong> One-tap fingerprint login after initial password authentication</li>
+    <li><strong>Credential Management:</strong> Users can view, add, and remove enrolled biometric credentials</li>
+    <li><strong>Remote Setup:</strong> Token-based biometric enrollment links for device setup</li>
+    <li><strong>Phone Verification:</strong> OTP-based phone verification before biometric enrollment</li>
+    <li><strong>Device Support Check:</strong> Automatic detection of WebAuthn support on the user's device</li>
+</ul>
+
+<h3>6.3 Implementation Details</h3>
+<p>The biometric system works through a challenge-response protocol:</p>
+<div class="code-block">
+1. Server generates a cryptographic challenge (random bytes)
+2. Client creates a credential using the device's authenticator (fingerprint sensor)
+3. Client returns the credential's public key and attestation
+4. Server stores the public key associated with the user account
+5. On subsequent logins, server challenges the client to sign with the private key
+6. Client uses fingerprint to authorize the signing operation
+7. Server verifies the signature against the stored public key
+</div>
+
+<h3>6.4 Enrolling a Fingerprint</h3>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Biometric Setup in Profile]</div>
+    <div class="desc">Log in and go to Profile > Biometric Management. Click "Register Fingerprint" and follow your browser's prompts to scan your fingerprint (Windows Hello, Mac Touch ID, or mobile biometric sensor). The system will store your encrypted biometric credential.</div>
+</div>
+
+<h3>6.5 Biometric Login</h3>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Biometric Login Button]</div>
+    <div class="desc">After enrolling a fingerprint, the login page will show a "Login with Fingerprint" button. Clicking it triggers the WebAuthn authentication flow, prompting for your fingerprint scan.</div>
+</div>
+
+<h3>6.6 Trust Indicators for Biometrics</h3>
+<p>The navigation bar displays a prominent "Fingerprint Verified Login" badge when users are authenticated, reinforcing the security and trustworthiness of the platform.</p>
+</div>
+
+<!-- CHAPTER 7: TCP INTEGRATION -->
+<div class="chapter page-break" id="ch7">
+<h2>7. Trusted Computing Platform (TCP) Integration</h2>
+
+<h3>7.1 TCP Concepts Applied</h3>
+<table>
+<tr><th>TCP Concept</th><th>Implementation</th></tr>
+<tr><td>Secure Session Management</td><td>Database-driven sessions with 120-minute timeout, IP tracking, user agent validation, and session regeneration after login</td></tr>
+<tr><td>Device Trust Verification</td><td>WebAuthn credential binding ties authentication to specific devices; biometric credentials are device-specific and cannot be copied</td></tr>
+<tr><td>Secure Token Handling</td><td>CSRF tokens on all forms, signed URLs for email verification, token-based biometric setup links, password reset tokens with expiration</td></tr>
+<tr><td>Trusted Login Validation</td><td>Multi-factor approach: email/password + optional WebAuthn biometric verification; rate limiting on failed attempts</td></tr>
+<tr><td>Secure Communication</td><td>HTTPS enforcement (configurable), all sensitive data transmitted over encrypted channels, HSTS-ready</td></tr>
+<tr><td>Secure Credential Storage</td><td>Passwords hashed with bcrypt (12 rounds), WebAuthn public keys stored securely, no plain-text secrets</td></tr>
+<tr><td>Integrity Measurement</td><td>Activity logging tracks all user actions for audit; payment status is verified end-to-end</td></tr>
+</table>
+
+<h3>7.2 Session Security</h3>
+<p>The session driver is set to <code>database</code> for persistence and auditability. Session lifetime is 120 minutes. The session ID is regenerated after login to prevent session fixation attacks. Each session record in the database includes the user ID, IP address, user agent, and last activity timestamp for monitoring.</p>
+
+<h3>7.3 Token-Based Security</h3>
+<p>The application uses multiple token mechanisms:</p>
+<ul>
+    <li><strong>CSRF Tokens:</strong> Every form includes a CSRF token validated by Laravel's middleware</li>
+    <li><strong>Email Verification Tokens:</strong> Signed URLs for verifying email addresses</li>
+    <li><strong>Password Reset Tokens:</strong> Hashed tokens stored in the password_resets table</li>
+    <li><strong>Biometric Setup Tokens:</strong> 64-character random tokens for remote WebAuthn enrollment</li>
+    <li><strong>API Tokens:</strong> Session-based authentication for AJAX requests</li>
+</ul>
+</div>
+
+<!-- CHAPTER 8: TRUST MANAGEMENT -->
+<div class="chapter page-break" id="ch8">
+<h2>8. Trust Management Features</h2>
+
+<h3>8.1 Trust Indicators</h3>
+<p>The application prominently displays trust indicators across all pages to build customer confidence:</p>
+
+<table>
+<tr><th>Trust Indicator</th><th>Location</th><th>Description</th></tr>
+<tr><td>HTTPS Badge</td><td>URL bar / Footer</td><td>Secure connection indicator when deployed with HTTPS</td></tr>
+<tr><td>Fingerprint Verified Login</td><td>Navbar (sub-bar, authenticated users)</td><td>Green badge showing biometric authentication is active</td></tr>
+<tr><td>Secure Payment via Stripe</td><td>Navbar (sub-bar)</td><td>Blue badge indicating payment security</td></tr>
+<tr><td>Trusted Session</td><td>Navbar (sub-bar)</td><td>Purple badge showing session is secure</td></tr>
+<tr><td>Secure Checkout Badge</td><td>Cart page</td><td>Blue label on checkout section</td></tr>
+<tr><td>Privacy Policy Page</td><td>Footer / Mobile menu</td><td>Detailed privacy policy explaining data handling</td></tr>
+<tr><td>Trust Policy Page</td><td>Footer / Mobile menu</td><td>Explanation of trust scoring and security measures</td></tr>
+<tr><td>Terms &amp; Conditions</td><td>Footer / Mobile menu</td><td>Legal terms governing platform usage</td></tr>
+<tr><td>Refund Policy</td><td>Footer / Mobile menu</td><td>Clear refund and return policies</td></tr>
+<tr><td>Authentication Notifications</td><td>System-wide</td><td>Database notifications for order confirmation and activity</td></tr>
+</table>
+
+<h3>8.2 Privacy Policy Page</h3>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Privacy Policy Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/privacy to view the comprehensive privacy policy covering data collection, usage, storage, and protection practices.</div>
+</div>
+
+<h3>8.3 Trust Policy Page</h3>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Trust Policy Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/trust to see the trust management policy explaining biometric verification, trusted devices, and trust levels.</div>
+</div>
+
+<h3>8.4 Customer Reviews &amp; Testimonials</h3>
+<p>Customer reviews with star ratings build social proof and trust. The dashboard displays "What Our Customers Say" testimonials section showcasing high-rated reviews. Product pages show all reviews with user names and timestamps.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Customer Reviews/Testimonials]</div>
+    <div class="desc">View any product page to see customer reviews with star ratings. The dashboard also shows testimonials from satisfied customers with product links.</div>
+</div>
+
+<h3>8.5 Activity History</h3>
+<p>Users can view their complete activity history showing all actions taken on the platform (logins, orders, profile changes, etc.), promoting transparency and accountability.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Activity History Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/history to see your activity log with timestamps and descriptions of each action.</div>
+</div>
+
+<h3>8.6 Customer Support</h3>
+<p>The system includes a complete support ticket management system where users can submit inquiries, complaints, and feedback. Admins can reply and close tickets, with email notifications.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Contact/Support Page]</div>
+    <div class="desc">Navigate to http://127.0.0.1:8000/contact to submit a support message. Admins can manage tickets at /admin/support/messages.</div>
+</div>
+</div>
+
+<!-- CHAPTER 9: SECURITY -->
+<div class="chapter page-break" id="ch9">
+<h2>9. Security Implementation</h2>
+
+<h3>9.1 Data Security</h3>
+<table>
+<tr><th>Measure</th><th>Implementation</th></tr>
+<tr><td>Password Hashing</td><td>bcrypt with 12 rounds (BCRYPT_ROUNDS=12 in .env)</td></tr>
+<tr><td>Password Validation</td><td>Minimum 8 characters via Laravel's Rules\Password with mixed case enforcement</td></tr>
+<tr><td>Data Encryption</td><td>Laravel's built-in encryption for sensitive data; APP_KEY used as encryption key</td></tr>
+<tr><td>Secure Communication</td><td>HTTPS-ready configuration with trusted proxies support</td></tr>
+</table>
+
+<h3>9.2 Authentication Security</h3>
+<ul>
+    <li><strong>Rate Limiting:</strong> 5 login attempts per minute using Laravel's RateLimiter</li>
+    <li><strong>Session Regeneration:</strong> Session ID regenerated after successful login</li>
+    <li><strong>Session Timeout:</strong> 120-minute session lifetime with forced re-authentication</li>
+    <li><strong>Email Verification:</strong> Required before accessing protected features</li>
+    <li><strong>Biometric Authentication:</strong> Phishing-resistant WebAuthn/FIDO2 protocol</li>
+    <li><strong>Password Confirmation:</strong> Re-authentication required before sensitive actions</li>
+</ul>
+
+<h3>9.3 Application Security</h3>
+<table>
+<tr><th>Vulnerability</th><th>Prevention Method</th></tr>
+<tr><td>SQL Injection</td><td>Eloquent ORM with parameterized queries (prepared statements); no raw SQL queries</td></tr>
+<tr><td>Cross-Site Scripting (XSS)</td><td>Blade's automatic {{ }} escaping; Content-Security-Policy headers</td></tr>
+<tr><td>CSRF</td><td>CSRF token on every form via @csrf directive; token validation middleware</td></tr>
+<tr><td>Input Validation</td><td>Form Request validation rules; server-side validation for all inputs</td></tr>
+<tr><td>Mass Assignment</td><td>Protected $fillable/$guarded properties on all models</td></tr>
+<tr><td>Path Traversal</td><td>Storage facade with proper disk configuration; no direct filesystem access</td></tr>
+</table>
+
+<h3>9.4 Payment Security</h3>
+<ul>
+    <li>No credit card numbers stored in the database or logs</li>
+    <li>All payment processing via gateway-hosted pages (Stripe Checkout, PayPal)</li>
+    <li>Transaction status verified end-to-end before order confirmation</li>
+    <li>Database transactions ensure atomicity (all-or-nothing order creation)</li>
+    <li>Payment records track complete audit trail with gateway references</li>
+</ul>
+</div>
+
+<!-- CHAPTER 10: TAM/UTAUT -->
+<div class="chapter page-break" id="ch10">
+<h2>10. TAM / UTAUT Integration</h2>
+
+<h3>10.1 Technology Acceptance Model (TAM)</h3>
+<p>The application is designed following the Technology Acceptance Model (TAM), focusing on two key constructs:</p>
+
+<h4>a) Perceived Usefulness (PU)</h4>
+<p>The application helps customers complete shopping activities efficiently:</p>
+<ul>
+    <li><strong>Fast Checkout:</strong> Streamlined multi-gateway checkout process with minimal steps</li>
+    <li><strong>Quick Payment Confirmation:</strong> Real-time payment status updates and instant order confirmation notifications</li>
+    <li><strong>Efficient Product Search:</strong> Category filtering and keyword search with paginated results</li>
+    <li><strong>Helpful Notifications:</strong> Real-time database notifications for order confirmations and updates</li>
+    <li><strong>Product Discovery:</strong> Category browsing, search, and wishlist management</li>
+</ul>
+
+<h4>b) Perceived Ease of Use (PEOU)</h4>
+<p>The system is simple and easy to use:</p>
+<ul>
+    <li><strong>Clear Navigation:</strong> Bootstrap 5 navbar with desktop/mobile responsive layouts, breadcrumb-style back button, and offcanvas mobile menu</li>
+    <li><strong>Simple Registration Process:</strong> Minimal fields (name, email, password, phone) with clear validation messages</li>
+    <li><strong>Easy Fingerprint Login:</strong> One-tap biometric authentication after initial setup</li>
+    <li><strong>User-Friendly Interface:</strong> Tailwind CSS with consistent design, hover effects, loading animations, and toast notifications</li>
+    <li><strong>Responsive Design:</strong> Mobile-first approach with offcanvas navigation and adaptive grid layouts</li>
+</ul>
+
+<h3>10.2 Unified Theory of Acceptance and Use of Technology (UTAUT)</h3>
+<p>UTAUT constructs are also addressed:</p>
+
+<h4>a) Performance Expectancy</h4>
+<ul>
+    <li><strong>Faster Payment Processing:</strong> Multi-gateway support with instant mock payment confirmation or real Stripe/PayPal processing</li>
+    <li><strong>Reliable Transactions:</strong> Database transaction safety, payment verification, stock management integrity</li>
+    <li><strong>Secure Customer Experience:</strong> Visible security badges, biometric authentication, and trust indicators</li>
+</ul>
+
+<h4>b) Effort Expectancy</h4>
+<ul>
+    <li><strong>Easy Checkout Process:</strong> Gateway selection with clear descriptions, minimal clicks to complete purchase</li>
+    <li><strong>Simple App Navigation:</strong> Consistent layout, clear menu structure, search functionality</li>
+    <li><strong>Easy Biometric Authentication:</strong> One-click fingerprint login after initial enrollment</li>
+</ul>
+
+<h4>c) Social Influence</h4>
+<ul>
+    <li><strong>Customer Reviews:</strong> Star ratings and written reviews on all product pages</li>
+    <li><strong>Testimonials:</strong> Dashboard showcases high-rated reviews from real customers</li>
+    <li><strong>Social Media Integration:</strong> Share products on WhatsApp, Facebook, and Twitter</li>
+    <li><strong>WhatsApp Inquiry:</strong> Direct product inquiry via WhatsApp business integration</li>
+</ul>
+
+<h4>d) Facilitating Conditions</h4>
+<ul>
+    <li><strong>Mobile Responsiveness:</strong> Full responsive design using Bootstrap 5 + Tailwind CSS</li>
+    <li><strong>Cross-Platform Compatibility:</strong> Works on all modern browsers (Chrome, Firefox, Safari, Edge) and devices</li>
+    <li><strong>Stable System Performance:</strong> Optimized database queries, eager loading, Vite asset bundling</li>
+    <li><strong>Offline-Ready:</strong> Toast notifications and form validation work without page reloads</li>
+</ul>
+</div>
+
+<!-- CHAPTER 11: ADMIN PANEL -->
+<div class="chapter page-break" id="ch11">
+<h2>11. Admin Panel &amp; Reports</h2>
+
+<h3>11.1 Admin Dashboard</h3>
+<p>The admin dashboard provides a comprehensive overview with statistics cards (total products, orders, users, revenue), recent orders table, management links, analytics sections, and customer support access.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Admin Dashboard]</div>
+    <div class="desc">Log in as admin@hesmb.com / password and navigate to http://127.0.0.1:8000/admin/dashboard to see the full admin panel with stats, recent orders, management links, analytics, and support sections.</div>
+</div>
+
+<h3>11.2 Product Management (Admin)</h3>
+<p>Full CRUD for products with image upload, category assignment, pricing, discount percentages, and stock management.</p>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Admin Product Management]</div>
+    <div class="desc">Navigate to Admin > Manage Products to view, create, edit, and delete products. The create/edit form includes name, description, price, discount, stock, category, and image upload.</div>
+</div>
+
+<h3>11.3 Order Management</h3>
+<p>View all orders with customer details, item breakdowns, status tracking (pending, confirmed, shipped, completed), and status updates.</p>
+
+<h3>11.4 Payment Management</h3>
+<p>View all payment transactions with gateway details, amounts, statuses, and ability to verify or refund payments.</p>
+
+<h3>11.5 User Management</h3>
+<p>Manage all user accounts with role assignment (user/admin), profile edits, and account deletion.</p>
+
+<h3>11.6 Reports &amp; Analytics</h3>
+<p>The reports page provides:</p>
+<ul>
+    <li>Total revenue and order statistics</li>
+    <li>Monthly revenue trends (last 6 months)</li>
+    <li>Best-selling products ranking</li>
+    <li>Customer activity analysis</li>
+    <li>Recent platform activity log</li>
+</ul>
+
+<div class="screenshot-box">
+    <div class="label">[SCREENSHOT: Admin Reports Page]</div>
+    <div class="desc">Navigate to Admin > Reports to view sales analytics, monthly revenue chart data, best sellers, customer activity, and the activity log.</div>
+</div>
+
+<h3>11.7 Category Management</h3>
+<p>Manage product categories with product counts and CRUD operations. Categories with existing products cannot be deleted to maintain data integrity.</p>
+
+<h3>11.8 Customer Support</h3>
+<p>View, reply to, and close customer support tickets. Messages are categorized by type (inquiry, complaint, feedback, other) and tracked with statuses (pending, replied, closed).</p>
+</div>
+
+<!-- CHAPTER 12: SCREENSHOTS -->
+<div class="chapter page-break" id="ch12">
+<h2>12. Screenshots Documentation</h2>
+
+<p>The application is currently running at <strong>http://127.0.0.1:8000</strong>. Below is the complete list of screenshots to capture for assignment submission:</p>
+
+<table>
+<tr><th>#</th><th>Page/Screen</th><th>URL</th><th>What to Capture</th></tr>
+<tr><td>1</td><td>Home Page</td><td>/</td><td>Welcome page with app name, Browse Products, Login, Register buttons</td></tr>
+<tr><td>2</td><td>Registration Page</td><td>/register</td><td>Registration form with all fields and validation</td></tr>
+<tr><td>3</td><td>Login Page</td><td>/login</td><td>Login form with email, password, Remember Me, Forgot Password</td></tr>
+<tr><td>4</td><td>Product Listing</td><td>/products</td><td>Product grid with categories, search, prices, discounts, stock</td></tr>
+<tr><td>5</td><td>Product Detail</td><td>/products/{id}</td><td>Full product page with description, price, reviews, sharing</td></tr>
+<tr><td>6</td><td>Shopping Cart</td><td>/cart</td><td>Cart with items, quantities, totals, checkout button</td></tr>
+<tr><td>7</td><td>Wishlist</td><td>/wishlist</td><td>Saved products with add-to-cart option</td></tr>
+<tr><td>8</td><td>Payment Gateways</td><td>/checkout</td><td>Gateway selection screen with Mock, Stripe, PayPal options</td></tr>
+<tr><td>9</td><td>Mock Payment</td><td>/payment/mock/confirm/{ref}</td><td>Mock payment confirmation with Simulate/Cancel buttons</td></tr>
+<tr><td>10</td><td>Order Success</td><td>/orders/{id}</td><td>Order detail page after successful payment</td></tr>
+<tr><td>11</td><td>Receipt View</td><td>/orders/{id}/receipt</td><td>Formatted receipt with order and payment details</td></tr>
+<tr><td>12</td><td>Biometric Setup</td><td>/profile (Biometric section)</td><td>Biometric fingerprint registration interface</td></tr>
+<tr><td>13</td><td>User Dashboard</td><td>/dashboard</td><td>Dashboard with quick links and customer testimonials</td></tr>
+<tr><td>14</td><td>Notifications</td><td>/notifications</td><td>Notification list with order confirmations</td></tr>
+<tr><td>15</td><td>Activity History</td><td>/history</td><td>User activity log with timestamps</td></tr>
+<tr><td>16</td><td>Profile Page</td><td>/profile</td><td>User profile edit form</td></tr>
+<tr><td>17</td><td>Privacy Policy</td><td>/privacy</td><td>Privacy policy content page</td></tr>
+<tr><td>18</td><td>Trust Policy</td><td>/trust</td><td>Trust management policy page</td></tr>
+<tr><td>19</td><td>Admin Dashboard</td><td>/admin/dashboard</td><td>Admin overview with stats, orders, management links</td></tr>
+<tr><td>20</td><td>Admin Products</td><td>/admin/products</td><td>Product management list with create/edit/delete</td></tr>
+<tr><td>21</td><td>Admin Orders</td><td>/admin/orders</td><td>Order management with status updates</td></tr>
+<tr><td>22</td><td>Admin Reports</td><td>/admin/reports</td><td>Analytics with revenue, best sellers, activity</td></tr>
+<tr><td>23</td><td>Admin Users</td><td>/admin/users</td><td>User management with role editing</td></tr>
+<tr><td>24</td><td>Admin Payments</td><td>/admin/payments</td><td>Payment management with verify/refund</td></tr>
+<tr><td>25</td><td>Admin Support</td><td>/admin/support/messages</td><td>Customer support ticket management</td></tr>
+<tr><td>26</td><td>Contact Page</td><td>/contact</td><td>Contact/support form</td></tr>
+<tr><td>27</td><td>FAQ Page</td><td>/faq</td><td>Frequently asked questions</td></tr>
+<tr><td>28</td><td>Navigation Bar</td><td>Any page (logged in)</td><td>Full navbar with security badges, notifications, user menu</td></tr>
+<tr><td>29</td><td>Mobile Menu</td><td>Any page (mobile view)</td><td>Offcanvas mobile navigation with all links</td></tr>
+<tr><td>30</td><td>Product Rating</td><td>/products/{id}</td><td>Rating form and customer reviews section</td></tr>
+</table>
+
+<div class="screenshot-box">
+    <div class="label">INSTRUCTIONS FOR TAKING SCREENSHOTS</div>
+    <div class="desc">
+        1. Open Chrome/Firefox and navigate to http://127.0.0.1:8000<br>
+        2. For authenticated screenshots, log in with:<br>
+           &nbsp;&nbsp;<strong>Admin:</strong> admin@hesmb.com / password<br>
+           &nbsp;&nbsp;<strong>User:</strong> francis@hesmb.com / password<br>
+        3. Use Snipping Tool, Windows+Shift+S, or browser DevTools screenshot<br>
+        4. Capture full-page screenshots where possible (use browser DevTools)<br>
+        5. Save all screenshots numbered as per the table above
+    </div>
+</div>
+</div>
+
+<!-- CHAPTER 13: TESTING -->
+<div class="chapter page-break" id="ch13">
+<h2>13. Testing &amp; Verification</h2>
+
+<h3>13.1 Test Accounts</h3>
+<table>
+<tr><th>Role</th><th>Email</th><th>Password</th></tr>
+<tr><td>Admin</td><td>admin@hesmb.com</td><td>password</td></tr>
+<tr><td>User 1</td><td>francis@hesmb.com</td><td>password</td></tr>
+<tr><td>User 2</td><td>jane@example.com</td><td>password</td></tr>
+<tr><td>User 3</td><td>peter@example.com</td><td>password</td></tr>
+</table>
+
+<h3>13.2 Test Scenarios</h3>
+<table>
+<tr><th>Scenario</th><th>Steps</th><th>Expected Result</th></tr>
+<tr><td>User Registration</td><td>Navigate to /register, fill in details, submit</td><td>Account created, verification email sent, redirected to dashboard</td></tr>
+<tr><td>User Login</td><td>Navigate to /login, enter email/password, submit</td><td>Logged in, redirected to dashboard</td></tr>
+<tr><td>Password Reset</td><td>Navigate to /forgot-password, enter email, submit</td><td>Password reset link sent (logged in mail log)</td></tr>
+<tr><td>Browse Products</td><td>Navigate to /products, filter by category, search</td><td>Products displayed with correct filtering and pagination</td></tr>
+<tr><td>Add to Cart</td><td>Click "Add to Cart" on a product</td><td>Product added, success message shown</td></tr>
+<tr><td>Update Cart Quantity</td><td>Change quantity in cart, click "Update"</td><td>Quantity updated, subtotal recalculated</td></tr>
+<tr><td>Complete Purchase (Mock)</td><td>Checkout > Mock > Simulate Payment</td><td>Order created, stock decremented, notification sent</td></tr>
+<tr><td>View Order History</td><td>Navigate to /orders</td><td>List of past orders with statuses</td></tr>
+<tr><td>Submit Product Rating</td><td>View product, fill rating form, submit</td><td>Rating saved, displayed in reviews section</td></tr>
+<tr><td>Biometric Registration</td><td>Profile > Biometric > Register Fingerprint</td><td>Browser prompts for fingerprint, credential stored</td></tr>
+<tr><td>View Activity History</td><td>Navigate to /history</td><td>Chronological list of user actions</td></tr>
+<tr><td>Admin: Manage Products</td><td>Admin > Manage Products > Create/Edit/Delete</td><td>Products CRUD operations work correctly</td></tr>
+<tr><td>Admin: View Reports</td><td>Admin > Reports</td><td>Analytics dashboard with stats and charts</td></tr>
+</table>
+
+<h3>13.3 Security Tests</h3>
+<ul>
+    <li><strong>SQL Injection Test:</strong> Attempting SQL in search fields returns no results (no errors)</li>
+    <li><strong>XSS Test:</strong> Entering &lt;script&gt; in fields is escaped and displayed as text</li>
+    <li><strong>CSRF Test:</strong> Forms without valid CSRF token return 419 Page Expired</li>
+    <li><strong>Auth Bypass:</strong> Accessing /admin without admin role returns 403 Forbidden</li>
+    <li><strong>Rate Limiting:</strong> 5 failed login attempts triggers rate limit message</li>
+</ul>
+
+<h3>13.4 Build Verification</h3>
+<div class="code-block">
+npm run build  # Frontend assets compiled successfully
+php artisan migrate:fresh --seed  # Database migrations and seeding successful
+php artisan serve  # Server starts on http://127.0.0.1:8000
+</div>
+<p>The application has been verified to build and run successfully with all 20 migrations executing without errors and the seeder populating 5 categories, 10 products, 4 users, and 4 sample ratings.</p>
+</div>
+
+<!-- CHAPTER 14: CONCLUSION -->
+<div class="chapter page-break" id="ch14">
+<h2>14. Conclusion &amp; Recommendations</h2>
+
+<h3>14.1 Conclusion</h3>
+<p>The SmartTrade Africa Ltd Secure E-Commerce Platform has been successfully developed as a comprehensive solution addressing the trust and security challenges faced by modern e-commerce businesses. The application integrates:</p>
+
+<ul>
+    <li><strong>Trusted Computing Platform (TCP)</strong> concepts including secure session management, device trust verification, secure token handling, and credential protection</li>
+    <li><strong>WebAuthn/FIDO2 Biometric Authentication</strong> for phishing-resistant fingerprint-based login</li>
+    <li><strong>Multi-Gateway Payment Integration</strong> with Stripe, PayPal, and Mock payment processing</li>
+    <li><strong>Trust Management Principles</strong> through visible trust indicators, transparent policies, and customer reviews</li>
+    <li><strong>TAM/UTAUT Concepts</strong> ensuring the platform is perceived as useful, easy to use, and aligned with user expectations</li>
+    <li><strong>Comprehensive Security</strong> including CSRF protection, XSS prevention, SQL injection prevention, bcrypt hashing, and input validation</li>
+</ul>
+
+<p>The application successfully demonstrates how combining technical security measures with trust-building features creates a platform that customers can confidently use for online transactions.</p>
+
+<h3>14.2 Recommendations</h3>
+<ol>
+    <li><strong>Production Deployment:</strong> Migrate from SQLite to MySQL/PostgreSQL for production scalability and performance</li>
+    <li><strong>Real SMS OTP:</strong> Integrate an SMS gateway (Twilio, Africa's Talking) for actual phone verification OTP delivery</li>
+    <li><strong>Multi-Factor Authentication:</strong> Add TOTP (Google Authenticator) or SMS-based 2FA as an additional security layer</li>
+    <li><strong>Flutterwave Gateway:</strong> Complete the Flutterwave integration to support African mobile money payments (M-Pesa, Airtel Money)</li>
+    <li><strong>Machine Learning Fraud Detection:</strong> Implement ML-based fraud detection for unusual transaction patterns</li>
+    <li><strong>Mobile Applications:</strong> Develop native Android/iOS applications with native biometric APIs for enhanced fingerprint authentication</li>
+    <li><strong>Blockchain Integration:</strong> Explore blockchain-based trust scoring for tamper-proof transaction history</li>
+    <li><strong>Performance Optimization:</strong> Implement Redis caching, database indexing, and CDN for static assets</li>
+    <li><strong>Penetration Testing:</strong> Regular security audits and penetration testing by third-party security firms</li>
+    <li><strong>User Trust Surveys:</strong> Conduct regular TAM/UTAUT surveys to measure technology acceptance and identify improvement areas</li>
+</ol>
+
+<h3>14.3 Future Enhancements</h3>
+<ul>
+    <li>AI-powered product recommendations</li>
+    <li>Real-time chat support</li>
+    <li>Order tracking with delivery status</li>
+    <li>Multiple currency support</li>
+    <li>Social login (Google, Facebook, Apple)</li>
+    <li>Progressive Web App (PWA) features for offline access</li>
+    <li>Vendor/multi-seller marketplace mode</li>
+</ul>
+</div>
+
+<!-- CHAPTER 15: REFERENCES -->
+<div class="chapter page-break" id="ch15">
+<h2>15. References</h2>
+
+<ol style="font-size:0.9em;">
+    <li>Davis, F. D. (1989). "Perceived usefulness, perceived ease of use, and user acceptance of information technology." <em>MIS Quarterly</em>, 13(3), 319-340.</li>
+    <li>Venkatesh, V., Morris, M. G., Davis, G. B., &amp; Davis, F. D. (2003). "User acceptance of information technology: Toward a unified view." <em>MIS Quarterly</em>, 27(3), 425-478.</li>
+    <li>W3C Web Authentication Working Group. "Web Authentication: An API for accessing Public Key Credentials Level 1." https://www.w3.org/TR/webauthn/</li>
+    <li>FIDO Alliance. "FIDO2: The World's Leading Authentication Standard." https://fidoalliance.org/fido2/</li>
+    <li>Stripe Inc. "Stripe API Documentation." https://stripe.com/docs/api</li>
+    <li>PayPal Inc. "PayPal REST API Documentation." https://developer.paypal.com/docs/api/</li>
+    <li>Laravel LLC. "Laravel 12 Documentation." https://laravel.com/docs/12.x</li>
+    <li>Buchs, L. "lbuchs/webauthn: WebAuthn/FIDO2 PHP Library." https://github.com/lbuchs/webauthn</li>
+    <li>barryvdh. "laravel-dompdf: PDF generation for Laravel." https://github.com/barryvdh/laravel-dompdf</li>
+    <li>Trusted Computing Group. "Trusted Platform Module (TPM) Summary." https://trustedcomputinggroup.org/resource/tpm-summary/</li>
+    <li>OAuth 2.0 Authorization Framework. RFC 6749. https://datatracker.ietf.org/doc/html/rfc6749</li>
+    <li>OWASP Foundation. "OWASP Top Ten Web Application Security Risks." https://owasp.org/www-project-top-ten/</li>
+</ol>
+</div>
+
+<div class="footer">
+    <p>SmartTrade Africa Ltd - Secure E-Commerce Platform &bull; Course 428: Trust Management in E-Commerce &bull; 2026</p>
+    <p>Report generated on {{ date('Y-m-d H:i:s') }} &bull; Application running at <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
+</div>
+
+</div>
+</body>
+</html>

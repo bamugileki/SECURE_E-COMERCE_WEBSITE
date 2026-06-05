@@ -26,6 +26,9 @@
             .hover-lift:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
             .main-content { padding-top: 80px; }
             @media (min-width: 992px) { .main-content { padding-top: 105px; } }
+            .hover-text-light { transition: color 0.2s ease; }
+            .hover-text-light:hover { color: rgba(255,255,255,.8) !important; }
+            .tracking-wider { letter-spacing: 0.05em; }
         </style>
     </head>
     <body class="font-sans antialiased">
@@ -51,10 +54,47 @@
                 {{ $slot }}
             </main>
 
-            <footer class="text-center py-4 mt-4 border-top border-gray-200 text-muted small">
-                &copy; {{ date('Y') }} SmartTrade Africa Ltd. All rights reserved.
-                <span class="mx-2">|</span>
-                Powered by <span class="fw-semibold">HESMB</span>
+            <footer class="bg-dark text-light mt-5">
+                <div class="container py-5">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-uppercase small tracking-wider mb-3">SmartTrade Africa Ltd</h6>
+                            <p class="text-secondary small lh-lg">Your trusted e-commerce platform for secure and convenient online shopping.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-uppercase small tracking-wider mb-3">Quick Links</h6>
+                            <ul class="list-unstyled small lh-lg">
+                                <li><a href="{{ route('products.index') }}" class="text-secondary text-decoration-none hover-text-light">Products</a></li>
+                                <li><a href="{{ route('about') }}" class="text-secondary text-decoration-none hover-text-light">About Us</a></li>
+                                <li><a href="{{ route('contact') }}" class="text-secondary text-decoration-none hover-text-light">Contact</a></li>
+                                <li><a href="{{ route('faq') }}" class="text-secondary text-decoration-none hover-text-light">FAQ</a></li>
+                                <li><a href="{{ route('privacy') }}" class="text-secondary text-decoration-none hover-text-light">Privacy Policy</a></li>
+                                <li><a href="{{ route('terms') }}" class="text-secondary text-decoration-none hover-text-light">Terms &amp; Conditions</a></li>
+                                <li><a href="{{ route('refund') }}" class="text-secondary text-decoration-none hover-text-light">Refund Policy</a></li>
+                                <li><a href="{{ route('trust') }}" class="text-secondary text-decoration-none hover-text-light">Trust Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h6 class="fw-bold text-uppercase small tracking-wider mb-3">Contact Info</h6>
+                            <ul class="list-unstyled small lh-lg text-secondary">
+                                <li>Ngongona, Dodoma - Tanzania</li>
+                                <li>+255 689 045 666</li>
+                                <li>francis@hesmb.com</li>
+                            </ul>
+                            <h6 class="fw-bold text-uppercase small tracking-wider mb-3 mt-4">Payment Methods</h6>
+                            <div class="d-flex gap-2">
+                                <span class="badge bg-secondary">Stripe</span>
+                                <span class="badge bg-secondary">PayPal</span>
+                                <span class="badge bg-secondary">Mock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top border-secondary py-3">
+                    <div class="container text-center text-secondary small">
+                        &copy; {{ date('Y') }} SmartTrade Africa Ltd. All rights reserved. Powered by <span class="fw-semibold">HESMB</span>
+                    </div>
+                </div>
             </footer>
         </div>
 

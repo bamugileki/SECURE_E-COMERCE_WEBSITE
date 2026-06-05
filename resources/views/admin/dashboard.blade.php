@@ -48,7 +48,7 @@
                             <tr>
                                 <td class="px-4 py-2 text-sm">#{{ $order->id }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $order->user->first_name }} {{ $order->user->last_name }}</td>
-                                <td class="px-4 py-2 text-sm">${{ number_format($order->total_price, 2) }}</td>
+                                <td class="px-4 py-2 text-sm">Tsh {{ number_format($order->total_price, 0) }}</td>
                                 <td class="px-4 py-2">
                                     <span class="px-2 py-1 rounded text-xs
                                         @if($order->status === 'pending') bg-yellow-100 text-yellow-800

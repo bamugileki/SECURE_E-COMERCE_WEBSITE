@@ -77,12 +77,9 @@
                         </div>
                         <div class="flex gap-4">
                             <a href="{{ route('products.index') }}" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600">Continue Shopping</a>
-                            <form action="{{ route('checkout.process') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="bg-green-500 text-white px-8 py-2 rounded hover:bg-green-600 font-semibold">
-                                    Proceed to Checkout
-                                </button>
-                            </form>
+                            <a href="{{ route('checkout.gateways') }}" class="bg-green-500 text-white px-8 py-2 rounded hover:bg-green-600 font-semibold">
+                                Proceed to Checkout
+                            </a>
                         </div>
                     </div>
                 </div>

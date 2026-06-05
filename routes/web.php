@@ -23,6 +23,7 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');
+Route::post('/contact', [App\Http\Controllers\SupportController::class, 'store'])->name('contact.store');
 Route::view('/privacy', 'pages.privacy')->name('privacy');
 Route::view('/terms', 'pages.terms')->name('terms');
 Route::view('/refund', 'pages.refund')->name('refund');
@@ -64,7 +65,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/orders/{order}/receipt', [ReceiptController::class, 'show'])->name('receipt.show');
     Route::get('/orders/{order}/receipt/download', [ReceiptController::class, 'download'])->name('receipt.download');
 
+    Route::get('/checkout', [PaymentController::class, 'showGateways'])->name('checkout.gateways');
     Route::post('/checkout', [PaymentController::class, 'checkout'])->name('checkout.process');
+    Route::get('/payment/mock/confirm/{reference}', [PaymentController::class, 'mockConfirm'])->name('payment.mock.confirm');
     Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
     Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 
@@ -84,6 +87,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications/recent', [NotificationController::class, 'recent'])->name('notifications.recent');
 
     Route::post('/products/{product}/rating', [RatingController::class, 'store'])->name('products.rating.store');
+
+    Route::get('/support/ticket/{message}', [App\Http\Controllers\SupportController::class, 'show'])->name('support.ticket');
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {

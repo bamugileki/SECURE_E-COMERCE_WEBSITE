@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\ProductRating;
 use App\Models\SupportMessage;
 use App\Models\User;
+use App\Notifications\SupportReplied;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -328,6 +329,10 @@ class AdminController extends Controller
             'status' => 'replied',
             'replied_at' => now(),
         ]);
+
+        if ($message->user_id && $message->user) {
+            $message->user->notify(new SupportReplied($message));
+        }
 
         return redirect()->route('admin.support.messages')->with('success', 'Reply sent to ' . $message->email);
     }

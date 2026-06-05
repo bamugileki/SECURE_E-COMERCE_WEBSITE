@@ -27,14 +27,6 @@ class MockGateway implements PaymentGatewayInterface
             'items' => $params['items'],
         ]);
 
-        $successUrl = $params['success_url']
-            . (str_contains($params['success_url'], '?') ? '&' : '?')
-            . "mock_reference={$reference}";
-
-        $cancelUrl = $params['cancel_url']
-            . (str_contains($params['cancel_url'], '?') ? '&' : '?')
-            . "mock_reference={$reference}";
-
         return [
             'status' => 'redirect',
             'redirect_url' => route('payment.mock.confirm', ['reference' => $reference]),
